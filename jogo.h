@@ -6,9 +6,9 @@
 
 int verificarVencedor(int tabuleiro[3][3]){
     int combinacoes[8][3] = {
-        {1, 2, 3}, {4, 5, 6}, {7, 8, 9},   /* linhas */
-        {1, 4, 7}, {2, 5, 8}, {3, 6, 9},   /* colunas */
-        {1, 5, 9}, {3, 5, 7}               /* diagonais */
+        {1, 2, 3}, {4, 5, 6}, {7, 8, 9},   // linhas 
+        {1, 4, 7}, {2, 5, 8}, {3, 6, 9},   // colunas 
+        {1, 5, 9}, {3, 5, 7}               // diagonais 
     };
 
     for(int i = 0; i < 8; i++){
@@ -25,7 +25,7 @@ int verificarVencedor(int tabuleiro[3][3]){
     }
     return -1;
 }
-
+    
 void jogo(int tabuleiro[3][3], int jogador){
     int rodada = 0;
     int vencedor = -1; // -1 = ninguém ganhou ainda, 1 = X, 2 = O
@@ -38,13 +38,9 @@ void jogo(int tabuleiro[3][3], int jogador){
         printf("Rodada %d, vez de %c\n", rodada + 1, simbolo(jogador));
         printf("Digite a posicao de 1 a 9: ");
 
-        int lido = scanf("%d", &posicao);
-        if(lido == EOF){
-            return;
-        }
-        if(lido != 1){
+        if(scanf("%d", &posicao) != 1){
             printf("Entrada invalida! Digite um numero de 1 a 9.\n");
-            limparBuffer();
+            limparTela();
             continue;
         }
         if(posicao < 1 || posicao > 9){
@@ -52,9 +48,9 @@ void jogo(int tabuleiro[3][3], int jogador){
             continue;
         }
 
-        int contador = 1;                  /* zera a cada jogada */
+        int contador = 1;                  
         for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){    /* era i < 3 e i++ */
+            for(int j = 0; j < 3; j++){    
                 if(contador == posicao){
                     linha = i;
                     coluna = j;
@@ -62,12 +58,11 @@ void jogo(int tabuleiro[3][3], int jogador){
                 contador++;
             }
         }
-
+       
         if(tabuleiro[linha][coluna] != 0){
             printf("Essa casa ja esta ocupada!\n");
             continue;
         }
-
         tabuleiro[linha][coluna] = jogador;
         rodada++;
         imprimirTabuleiro(tabuleiro);
@@ -80,7 +75,6 @@ void jogo(int tabuleiro[3][3], int jogador){
         }
     }
 
-    /* resultado só depois que o loop termina */
     if(vencedor == 1){
         printf("Jogador X venceu!\n");
     } else if(vencedor == 2){
