@@ -1,0 +1,32 @@
+#ifndef CONFIGURAJOGADORES_H
+#define CONFIGURAJOGADORES_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "tabuleiro.h"
+
+/* Devolve VALOR_X (4) ou VALOR_O (1), os mesmos valores usados no tabuleiro. */
+int configuraJogadores(){
+    int escolha;
+    while(1){
+        printf("Digite 1 para X e 2 para O: ");
+        int lido = scanf("%d", &escolha);
+        if(lido == EOF){
+            exit(1);  /* entrada encerrada */
+        }
+        if(lido != 1){
+            limparBuffer();
+            printf("Escolha inválida!\n");
+            continue;
+        }
+        if(escolha == 1){
+            return VALOR_X;
+        }
+        if(escolha == 2){
+            return VALOR_O;
+        }
+        printf("Escolha inválida!\n");
+    }
+}
+
+#endif
