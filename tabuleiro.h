@@ -4,14 +4,12 @@
 #define VALOR_X 4
 #define VALOR_O 1
 
-int limparTela() {
- printf("\033[2J\033[H");
- return 0;
+void limparTela(){
+    while(getchar() != "\n") { 
+        NULL;
+    }
+}
 
-}
-void limparBuffer(){
-    while(getchar()!= "\n") { }
-}
 void Criartabuleiro(int tabuleiro[3][3]){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3;j++){

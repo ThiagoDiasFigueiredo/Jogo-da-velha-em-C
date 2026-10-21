@@ -5,18 +5,16 @@
 #include <stdlib.h>
 #include "tabuleiro.h"
 
-/* Devolve VALOR_X (4) ou VALOR_O (1), os mesmos valores usados no tabuleiro. */
 int configuraJogadores(){
     int escolha;
+    
     while(1){
         printf("Digite 1 para X e 2 para O: ");
         int lido = scanf("%d", &escolha);
-        if(lido == EOF){
-            exit(1);  /* entrada encerrada */
-        }
-        if(lido != 1){
-            limparBuffer();
-            printf("Escolha inválida!\n");
+        
+        if(lido != 1){ //1 é True e 0 é false (binário)
+            limparTela();
+            printf("Escolha inválida!\n"); //isso significa que o usuário não digitou um número
             continue;
         }
         if(escolha == 1){
