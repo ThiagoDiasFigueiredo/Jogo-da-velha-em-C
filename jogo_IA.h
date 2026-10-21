@@ -265,14 +265,14 @@ int jogador_X_IA(){
             scanf("%d", &jogada_usuario);
             if((jogada_usuario<1)||
                 (jogada_usuario>9)){
-                    puts("\nEssa jogada nao foi valida\n");
+                    puts("Essa jogada nao foi valida\n");
                     continue;
                 }
             else if (tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] == 0){
                 tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
             }
             else{
-                puts("\nEssa jogada nao foi valida\n");
+                puts("Essa jogada nao foi valida\n");
                 continue;
             }
 
@@ -288,7 +288,7 @@ int jogador_X_IA(){
             (tabuleiro[0][2] ==4 && tabuleiro[1][2] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][0] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][2] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][0] == 4)){
-                puts("\nVoce ganhou!");
+                puts("Voce ganhou!\n");
                 break;
             }
 
@@ -300,7 +300,7 @@ int jogador_X_IA(){
             (tabuleiro[0][2] ==1 &&  tabuleiro[1][2] ==1 &&  tabuleiro[2][2] == 1)||
             (tabuleiro[0][0] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][2] == 1)||
             (tabuleiro[0][2] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][0] == 1)){
-                puts("\nA IA ganhou!");
+                puts("A IA ganhou!\n");
                 break;
             }        
 
@@ -313,7 +313,7 @@ int jogador_X_IA(){
             }  
         }
         if (cont == 0){
-            puts("\nO jogo foi empatado");
+            puts("O jogo foi empatado\n");
             break;
         }  
     } 

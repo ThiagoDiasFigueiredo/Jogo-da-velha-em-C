@@ -26,7 +26,8 @@ int verificarVencedor(int tabuleiro[3][3]){
     }
     return -1;
 }
-    
+ 
+
 void jogo(int tabuleiro[3][3], int jogador,int escolha){
     int rodada = 0;
     int vencedor = -1; // -1 = ninguém ganhou ainda, 1 = X, 2 = O
