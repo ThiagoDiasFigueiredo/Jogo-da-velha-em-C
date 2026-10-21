@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tabuleiro.h"
+#include <time.h>
 
 void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     int ameaca;
@@ -182,7 +183,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
             return;
     }        
     else if(jogada_usuario == 6 && tabuleiro [1][0] == 0){
-        tabuleiro[2][1] = 1;
+        tabuleiro[1][0] = 1;
             return;
     }        
     else if(jogada_usuario == 7 && tabuleiro [0][2] == 0){
@@ -230,16 +231,26 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     
 }
 int jogador_X_IA(){
+    srand(time(NULL));
     int sorteio = rand() % 2, tabuleiro[3][3],jogada_usuario, cont = 9;
     Criartabuleiro(tabuleiro);
     imprimirTabuleiro(tabuleiro);
 
     if (sorteio == 0){
         puts("\nO jogador vai começar\n");
-        printf("\nDigite a posição que deseja jogar: ");
-        scanf("%d", &jogada_usuario);
-        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
-        
+        while(1){
+            printf("\nDigite a posição que deseja jogar: ");
+            scanf("%d", &jogada_usuario);
+            if ((jogada_usuario<1)||
+                (jogada_usuario>9)){
+                    puts("\nEssa jogada foi invalida\n");
+                    continue;
+                }
+            else{
+                tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
+                break;
+            }
+        }
         jogabilidade_IA(tabuleiro, jogada_usuario);
 
         imprimirTabuleiro(tabuleiro);
@@ -250,9 +261,20 @@ int jogador_X_IA(){
         imprimirTabuleiro(tabuleiro);
     }
     while (cont > 0){
-        printf("\nDigite a posição que deseja jogar: ");
-        scanf("%d", &jogada_usuario);
-        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
+            printf("\nDigite a posição que deseja jogar: ");
+            scanf("%d", &jogada_usuario);
+            if((jogada_usuario<1)||
+                (jogada_usuario>9)){
+                    puts("\nEssa jogada não foi valida\n");
+                    continue;
+                }
+            else if (tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] == 0){
+                tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
+            }
+            else{
+                puts("\nEssa jogada não foi valida\n");
+                continue;
+            }
 
         jogabilidade_IA(tabuleiro, jogada_usuario);
         
