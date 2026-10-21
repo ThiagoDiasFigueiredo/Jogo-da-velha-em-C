@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tabuleiro.h"
 #include <time.h>
-#include <string.h>
+
 void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     int ameaca;
 

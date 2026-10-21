@@ -3,7 +3,7 @@
 #include "configurajogadores.h"
 #include "jogo.h"
 #include "menu.h"
-#include <string.h>
+
 int main(){
     int tabuleiro[3][3];
     Criartabuleiro(tabuleiro);
