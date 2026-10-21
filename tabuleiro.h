@@ -5,7 +5,7 @@
 #define VALOR_O 1
 
 void limparTela(){
-    while(getchar() != "\n") { 
+    while(getchar() != '\n') { 
         NULL;
     }
 }
