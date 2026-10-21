@@ -3,176 +3,217 @@
 #include "tabuleiro.h"
 
 void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
-    
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[i][0] == 'O' && tabuleiro[i][1] == 'O' && tabuleiro[i][2] == '0'){
-            tabuleiro[i][2] = 'O';
-            return;
-        }
-        else if (tabuleiro[i][0] == 'O' && tabuleiro[i][2] == 'O' && tabuleiro[i][1] == '0'){
-            tabuleiro[i][1] = 'O';
-            return;
-        }
-        else if (tabuleiro[i][1] == 'O' && tabuleiro[i][2] == 'O' && tabuleiro[i][0] == '0'){
-            tabuleiro[i][0] = 'O';
-            return;
-        }
-    }
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[0][i] == 'O' && tabuleiro[1][i] == 'O' && tabuleiro[2][i] == '0'){
-            tabuleiro[2][i] = 'O';
-            return;
-        }
-        else if (tabuleiro[0][i] == 'O' && tabuleiro[2][i] == 'O' && tabuleiro[1][i] == '0'){
-            tabuleiro[1][i] = 'O';
-            return;
-        }
-        else if (tabuleiro[1][i] == 'O' && tabuleiro[2][i] == 'O' && tabuleiro[0][i] == '0'){
-            tabuleiro[0][i] = 'O';
-            return;
-        }
-    }
-    if (tabuleiro[0][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][2] == '0'){
-        tabuleiro[2][2] = 'O';
-            return;
-    }
-    else if (tabuleiro[0][0] == 'O' && tabuleiro[2][2] == 'O' && tabuleiro[1][1] == '0'){
-        tabuleiro[1][1] = 'O';
-            return;
-    }
-    else if (tabuleiro[1][1] == 'O' && tabuleiro[2][2] == 'O' && tabuleiro[0][0] == '0'){
-        tabuleiro[0][0] = 'O';
-            return;
-    }
-    
-    else if (tabuleiro[0][2] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][0] == '0'){
-        tabuleiro[2][0] = 'O';
-            return;
-    }
-    else if (tabuleiro[0][2] == 'O' && tabuleiro[2][0] == 'O' && tabuleiro[1][1] == '0'){
-        tabuleiro[1][1] = 'O';
-            return;
-    }
-    else if (tabuleiro[1][1] == 'O' && tabuleiro[2][0] == 'O' && tabuleiro[0][2] == '0'){
-        tabuleiro[0][2] = 'O';
-            return;
-    }
-
-
+    int ameaca;
 
     for (int i = 0; i < 3; i++) {
-        if (tabuleiro[i][0] == 'X' && tabuleiro[i][1] == 'X' && tabuleiro[i][2] == '0'){
-            tabuleiro[i][2] = 'O';
+        if (tabuleiro[i][0] == 1 && tabuleiro[i][1] == 1 && tabuleiro[i][2] == 0){
+            tabuleiro[i][2] = 1;
             return;
         }
-        else if (tabuleiro[i][0] == 'X' && tabuleiro[i][2] == 'X' && tabuleiro[i][1] == '0'){
-            tabuleiro[i][1] = 'O';
+        else if (tabuleiro[i][0] == 1 && tabuleiro[i][2] == 1 && tabuleiro[i][1] == 0){
+            tabuleiro[i][1] = 1;
             return;
         }
-        else if (tabuleiro[i][1] == 'X' && tabuleiro[i][2] == 'X' && tabuleiro[i][0] == '0'){
-            tabuleiro[i][0] = 'O';
+        else if (tabuleiro[i][1] == 1 && tabuleiro[i][2] == 1 && tabuleiro[i][0] == 0){
+            tabuleiro[i][0] = 1;
             return;
         }
     }
     for (int i = 0; i < 3; i++) {
-        if (tabuleiro[0][i] == 'X' && tabuleiro[1][i] == 'X' && tabuleiro[2][i] == '0'){
-            tabuleiro[2][i] = 'O';
+        if (tabuleiro[0][i] == 1 && tabuleiro[1][i] == 1 && tabuleiro[2][i] == 0){
+            tabuleiro[2][i] = 1;
             return;
         }
-        else if (tabuleiro[0][i] == 'X' && tabuleiro[2][i] == 'X' && tabuleiro[1][i] == '0'){
-            tabuleiro[1][i] = 'O';
+        else if (tabuleiro[0][i] == 1 && tabuleiro[2][i] == 1 && tabuleiro[1][i] == 0){
+            tabuleiro[1][i] = 1;
             return;
         }
-        else if (tabuleiro[1][i] == 'X' && tabuleiro[2][i] == 'X' && tabuleiro[0][i] == '0'){
-            tabuleiro[0][i] = 'O';
+        else if (tabuleiro[1][i] == 1 && tabuleiro[2][i] == 1 && tabuleiro[0][i] == 0){
+            tabuleiro[0][i] = 1;
             return;
         }
     }
-    if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == '0'){
-        tabuleiro[2][2] = 'O';
+    if (tabuleiro[0][0] == 1 && tabuleiro[1][1] == 1 && tabuleiro[2][2] == 0){
+        tabuleiro[2][2] = 1;
             return;
     }
-    else if (tabuleiro[0][0] == 'X' && tabuleiro[2][2] == 'X' && tabuleiro[1][1] == '0'){
-        tabuleiro[1][1] = 'O';
+    else if (tabuleiro[0][0] == 1 && tabuleiro[2][2] == 1 && tabuleiro[1][1] == 0){
+        tabuleiro[1][1] = 1;
             return;
     }
-    else if (tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X' && tabuleiro[0][0] == '0'){
-        tabuleiro[0][0] = 'O';
+    else if (tabuleiro[1][1] == 1 && tabuleiro[2][2] == 1 && tabuleiro[0][0] == 0){
+        tabuleiro[0][0] = 1;
             return;
     }
     
-    else if (tabuleiro[0][2] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][0] == '0'){
-        tabuleiro[2][0] = 'O';
+    else if (tabuleiro[0][2] == 1 && tabuleiro[1][1] == 1 && tabuleiro[2][0] == 0){
+        tabuleiro[2][0] = 1;
             return;
     }
-    else if (tabuleiro[0][2] == 'X' && tabuleiro[2][0] == 'X' && tabuleiro[1][1] == '0'){
-        tabuleiro[1][1] = 'O';
+    else if (tabuleiro[0][2] == 1 && tabuleiro[2][0] == 1 && tabuleiro[1][1] == 0){
+        tabuleiro[1][1] = 1;
             return;
     }
-    else if (tabuleiro[1][1] == 'X' && tabuleiro[2][0] == 'X' && tabuleiro[0][2] == '0'){
-        tabuleiro[0][2] = 'O';
+    else if (tabuleiro[1][1] == 1 && tabuleiro[2][0] == 1 && tabuleiro[0][2] == 0){
+        tabuleiro[0][2] = 1;
+            return;
+    }
+
+
+
+    for (int i = 0; i < 3; i++) {
+        if (tabuleiro[i][0] == 4 && tabuleiro[i][1] == 4 && tabuleiro[i][2] == 0){
+            tabuleiro[i][2] = 1;
+            return;
+        }
+        else if (tabuleiro[i][0] == 4 && tabuleiro[i][2] == 4 && tabuleiro[i][1] == 0){
+            tabuleiro[i][1] = 1;
+            return;
+        }
+        else if (tabuleiro[i][1] == 4 && tabuleiro[i][2] == 4 && tabuleiro[i][0] == 0){
+            tabuleiro[i][0] = 1;
+            return;
+        }
+    }
+    for (int i = 0; i < 3; i++) {
+        if (tabuleiro[0][i] == 4 && tabuleiro[1][i] == 4 && tabuleiro[2][i] == 0){
+            tabuleiro[2][i] = 1;
+            return;
+        }
+        else if (tabuleiro[0][i] == 4 && tabuleiro[2][i] == 4 && tabuleiro[1][i] == 0){
+            tabuleiro[1][i] = 1;
+            return;
+        }
+        else if (tabuleiro[1][i] == 4 && tabuleiro[2][i] == 4 && tabuleiro[0][i] == 0){
+            tabuleiro[0][i] = 1;
+            return;
+        }
+    }
+    if (tabuleiro[0][0] == 4 && tabuleiro[1][1] == 4 && tabuleiro[2][2] == 0){
+        tabuleiro[2][2] = 1;
+            return;
+    }
+    else if (tabuleiro[0][0] == 4 && tabuleiro[2][2] == 4 && tabuleiro[1][1] == 0){
+        tabuleiro[1][1] = 1;
+            return;
+    }
+    else if (tabuleiro[1][1] == 4 && tabuleiro[2][2] == 4 && tabuleiro[0][0] == 0){
+        tabuleiro[0][0] = 1;
+            return;
+    }
+    
+    else if (tabuleiro[0][2] == 4 && tabuleiro[1][1] == 4 && tabuleiro[2][0] == 0){
+        tabuleiro[2][0] = 1;
+            return;
+    }
+    else if (tabuleiro[0][2] == 4 && tabuleiro[2][0] == 4 && tabuleiro[1][1] == 0){
+        tabuleiro[1][1] = 1;
+            return;
+    }
+    else if (tabuleiro[1][1] == 4 && tabuleiro[2][0] == 4 && tabuleiro[0][2] == 0){
+        tabuleiro[0][2] = 1;
             return;
     
     }
 
 
+    for (int i = 0; i<3; i++){
+        for (int j = 0; j<3; j++){
+            if (tabuleiro[i][j] == 0){
+                tabuleiro[i][j] = 1;
+                ameaca = 0;
+                for(int k=0; k<3; k++) {
+                    if((tabuleiro[k][0]==1 && tabuleiro[k][1]==1 && tabuleiro[k][2]==0) ||
+                       (tabuleiro[k][0]==1 && tabuleiro[k][2]==1 && tabuleiro[k][1]==0) ||
+                       (tabuleiro[k][1]==1 && tabuleiro[k][2]==1 && tabuleiro[k][0]==0)){
+                        ameaca++;
+                       }
+                }
+                for(int k=0; k<3; k++) {
+                    if((tabuleiro[0][k]==1 && tabuleiro[1][k]==1 && tabuleiro[2][k]==0) ||
+                       (tabuleiro[0][k]==1 && tabuleiro[2][k]==1 && tabuleiro[1][k]==0) ||
+                       (tabuleiro[1][k]==1 && tabuleiro[2][k]==1 && tabuleiro[0][k]==0)){
+                        ameaca++;
+                       }
+                }
+                if((tabuleiro[0][0]==1 && tabuleiro[1][1]==1 && tabuleiro[2][2]==0) ||
+                   (tabuleiro[0][0]==1 && tabuleiro[2][2]==1 && tabuleiro[1][1]==0) ||
+                   (tabuleiro[1][1]==1 && tabuleiro[2][2]==1 && tabuleiro[0][0]==0)){
+                    ameaca++;
+                   }
+                if((tabuleiro[0][2]==1 && tabuleiro[1][1]==1 && tabuleiro[2][0]==0) ||
+                   (tabuleiro[0][2]==1 && tabuleiro[2][0]==1 && tabuleiro[1][1]==0) ||
+                   (tabuleiro[1][1]==1 && tabuleiro[2][0]==1 && tabuleiro[0][2]==0)){ 
+                   ameaca++;
+                   }
+                if(ameaca >=2){
+                    return;
+                }
+                else{
+                    tabuleiro[i][j] = 0;
+                }
+            }
+        }
+    }
 
-    else if (tabuleiro[1][1] == '0'){
-        tabuleiro[1][1] = 'O';
+
+
+    if (tabuleiro[1][1] == 0){
+        tabuleiro[1][1] = 1;
             return;
     }
 
 
 
-    else if (jogada_usuario == 1 && tabuleiro[2][2] == '0'){
-        tabuleiro[2][2] = 'O';
+    else if (jogada_usuario == 1 && tabuleiro[2][2] == 0){
+        tabuleiro[2][2] = 1;
             return;
     }
-    else if(jogada_usuario == 2 && tabuleiro [2][1] == '0'){
-        tabuleiro[2][1] = 'O';
+    else if(jogada_usuario == 2 && tabuleiro [2][1] == 0){
+        tabuleiro[2][1] = 1;
             return;
     }
-    else if(jogada_usuario == 3 && tabuleiro [2][0] == '0'){
-        tabuleiro[2][0] = 'O';
+    else if(jogada_usuario == 3 && tabuleiro [2][0] == 0){
+        tabuleiro[2][0] = 1;
             return;
     }
-    else if(jogada_usuario == 4 && tabuleiro [1][2] == '0'){
-        tabuleiro[1][2] = 'O';
+    else if(jogada_usuario == 4 && tabuleiro [1][2] == 0){
+        tabuleiro[1][2] = 1;
             return;
     }        
-    else if(jogada_usuario == 6 && tabuleiro [1][0] == '0'){
-        tabuleiro[2][1] = 'O';
+    else if(jogada_usuario == 6 && tabuleiro [1][0] == 0){
+        tabuleiro[2][1] = 1;
             return;
     }        
-    else if(jogada_usuario == 7 && tabuleiro [0][2] == '0'){
-        tabuleiro[0][2] = 'O';
+    else if(jogada_usuario == 7 && tabuleiro [0][2] == 0){
+        tabuleiro[0][2] = 1;
             return;
     }        
-    else if(jogada_usuario == 8 && tabuleiro [0][1] == '0'){
-        tabuleiro[0][1] = 'O';
+    else if(jogada_usuario == 8 && tabuleiro [0][1] == 0){
+        tabuleiro[0][1] = 1;
             return;
     }
-    else if(jogada_usuario == 9 && tabuleiro [0][0] == '0'){
-        tabuleiro[0][0] = 'O';
+    else if(jogada_usuario == 9 && tabuleiro [0][0] == 0){
+        tabuleiro[0][0] = 1;
             return;
     } 
 
 
 
-    else if(tabuleiro [0][0] == '0'){
-        tabuleiro [0][0] = 'O';
+    else if(tabuleiro [0][0] == 0){
+        tabuleiro [0][0] = 1;
             return;
     }
-    else if(tabuleiro [0][2] == '0'){
-        tabuleiro [0][2] = 'O';
+    else if(tabuleiro [0][2] == 0){
+        tabuleiro [0][2] = 1;
             return;
     }
-    else if(tabuleiro [2][0] == '0'){
-        tabuleiro [2][0] = 'O';
+    else if(tabuleiro [2][0] == 0){
+        tabuleiro [2][0] = 1;
             return;
     }
-    else if(tabuleiro [2][2] == '0'){
-        tabuleiro [2][2] = 'O';
+    else if(tabuleiro [2][2] == 0){
+        tabuleiro [2][2] = 1;
             return;
     }    
 
@@ -180,8 +221,8 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     
     for (int i = 0; i<3;i++){
         for (int j = 0; j<3; j++){
-            if (tabuleiro[i][j] == '0'){
-                tabuleiro[i][j] = 'O';
+            if (tabuleiro[i][j] == 0){
+                tabuleiro[i][j] = 1;
                 return;
             }
         }
@@ -194,37 +235,65 @@ int jogador_X_IA(){
     imprimirTabuleiro(tabuleiro);
 
     if (sorteio == 0){
-        puts("O jogador vai começar");
-        printf("Digite a posição que deseja jogar: ");
+        puts("\nO jogador vai começar\n");
+        printf("\nDigite a posição que deseja jogar: ");
         scanf("%d", &jogada_usuario);
-        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 'X';
+        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
         
         jogabilidade_IA(tabuleiro, jogada_usuario);
 
         imprimirTabuleiro(tabuleiro);
     }
     else{
-        puts("A IA vai começar");
-        tabuleiro[1][1] = 'O';
+        puts("\nA IA vai começar\n");
+        tabuleiro[1][1] = 1;
         imprimirTabuleiro(tabuleiro);
     }
     while (cont > 0){
-        printf("Digite a posição que deseja jogar: ");
+        printf("\nDigite a posição que deseja jogar: ");
         scanf("%d", &jogada_usuario);
-        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 'X';
+        tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
 
         jogabilidade_IA(tabuleiro, jogada_usuario);
         
         imprimirTabuleiro(tabuleiro);
 
+        if ((tabuleiro[0][0] == 4 && tabuleiro[0][1] == 4 && tabuleiro[0][2] == 4)||
+            (tabuleiro[1][0] == 4 && tabuleiro[1][1] ==4 && tabuleiro[1][2] == 4)||
+            (tabuleiro[2][0] ==4 && tabuleiro[2][1] ==4 && tabuleiro[2][2] == 4)||
+            (tabuleiro[0][0] ==4 && tabuleiro[1][0] ==4 && tabuleiro[2][0] == 4)||
+            (tabuleiro[0][1] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][1] == 4)||
+            (tabuleiro[0][2] ==4 && tabuleiro[1][2] ==4 && tabuleiro[2][2] == 4)||
+            (tabuleiro[0][0] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][2] == 4)||
+            (tabuleiro[0][2] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][0] == 4)){
+                puts("\nVocê ganhou!");
+                break;
+            }
+
+        if ((tabuleiro[0][0] ==1 && tabuleiro[0][1] ==1 && tabuleiro[0][2] == 1)||
+            (tabuleiro[1][0] ==1 && tabuleiro[1][1] ==1 && tabuleiro[1][2] == 1)||
+            (tabuleiro[2][0] ==1 &&  tabuleiro[2][1] ==1 &&  tabuleiro[2][2] == 1)||
+            (tabuleiro[0][0] ==1 &&  tabuleiro[1][0] ==1 &&  tabuleiro[2][0] == 1)||
+            (tabuleiro[0][1] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][1] == 1)||
+            (tabuleiro[0][2] ==1 &&  tabuleiro[1][2] ==1 &&  tabuleiro[2][2] == 1)||
+            (tabuleiro[0][0] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][2] == 1)||
+            (tabuleiro[0][2] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][0] == 1)){
+                puts("\nA IA ganhou!");
+                break;
+            }        
+
         cont = 0;
         for (int i = 0; i<3;i++){
             for (int j = 0; j<3;j++){
-                if (tabuleiro[i][j] == '0'){
+                if (tabuleiro[i][j] == 0){
                     cont++;
                 }
-            }
+            }  
         }
-    }
+        if (cont == 0){
+            puts("\nO jogo foi empatado");
+            break;
+        }  
+    } 
     return 0;
 }
