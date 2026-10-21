@@ -6,6 +6,7 @@
 void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     int ameaca;
 
+    //Marcação no quadrado faltando para gerar uma linha para ganhar 
     for (int i = 0; i < 3; i++) {
         if (tabuleiro[i][0] == 1 && tabuleiro[i][1] == 1 && tabuleiro[i][2] == 0){
             tabuleiro[i][2] = 1;
@@ -61,7 +62,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     }
 
 
-
+    //marcação de um quadrado para tentar impedir com que meu adversário ganhe
     for (int i = 0; i < 3; i++) {
         if (tabuleiro[i][0] == 4 && tabuleiro[i][1] == 4 && tabuleiro[i][2] == 0){
             tabuleiro[i][2] = 1;
@@ -118,6 +119,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     }
 
 
+    //Marca uma opção para que a IA possa gerar 2 ameaças de matar o jogo, deixando o jogador em uma enrascada
     for (int i = 0; i<3; i++){
         for (int j = 0; j<3; j++){
             if (tabuleiro[i][j] == 0){
@@ -158,14 +160,14 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     }
 
 
-
+    //Marca o centro
     if (tabuleiro[1][1] == 0){
         tabuleiro[1][1] = 1;
             return;
     }
 
 
-
+    //Marca o lado oposto ao que o adversário marcou
     else if (jogada_usuario == 1 && tabuleiro[2][2] == 0){
         tabuleiro[2][2] = 1;
             return;
@@ -200,7 +202,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     } 
 
 
-
+    //marca as pontas
     else if(tabuleiro [0][0] == 0){
         tabuleiro [0][0] = 1;
             return;
@@ -219,7 +221,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     }    
 
 
-    
+    //marca oque está faltando
     for (int i = 0; i<3;i++){
         for (int j = 0; j<3; j++){
             if (tabuleiro[i][j] == 0){
@@ -240,7 +242,12 @@ int jogador_X_IA(){
         puts("O jogador vai comecar\n");
         while(1){
             printf("Digite a posicao que deseja jogar: ");
-            scanf("%d", &jogada_usuario);
+            if (scanf("%d", &jogada_usuario)!=1){
+                puts("\nEssa jogada foi invalida\n");
+                int c;
+                while((c = getchar()) != '\n' && c!= EOF);
+                continue;
+            }
             if ((jogada_usuario<1)||
                 (jogada_usuario>9)){
                     puts("Essa jogada foi invalida\n");
@@ -262,7 +269,12 @@ int jogador_X_IA(){
     }
     while (cont > 0){
             printf("Digite a posicao que deseja jogar: ");
-            scanf("%d", &jogada_usuario);
+            if (scanf("%d", &jogada_usuario)!=1){
+                puts("\nEssa jogada foi invalida\n");
+                int c;
+                while((c = getchar()) != '\n' && c!= EOF);
+                continue;
+            }
             if((jogada_usuario<1)||
                 (jogada_usuario>9)){
                     puts("\nEssa jogada nao foi valida\n");
