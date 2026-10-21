@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 #include "tabuleiro.h"
-
+#include "menu.h"
+#include "jogo_IA.h"
 int verificarVencedor(int tabuleiro[3][3]){
     int combinacoes[8][3] = {
         {1, 2, 3}, {4, 5, 6}, {7, 8, 9},   // linhas 
@@ -26,15 +27,15 @@ int verificarVencedor(int tabuleiro[3][3]){
     return -1;
 }
     
-void jogo(int tabuleiro[3][3], int jogador){
+void jogo(int tabuleiro[3][3], int jogador,int escolha){
     int rodada = 0;
     int vencedor = -1; // -1 = ninguém ganhou ainda, 1 = X, 2 = O
     int posicao;
     int linha = 0, coluna = 0;
-
+    
     imprimirTabuleiro(tabuleiro);
-
-    while(rodada != 9 && vencedor == -1){
+    if(escolha == 1){
+        while(rodada != 9 && vencedor == -1){
         printf("Rodada %d, vez de %c\n", rodada + 1, simbolo(jogador));
         printf("Digite a posicao de 1 a 9: ");
 
@@ -83,5 +84,7 @@ void jogo(int tabuleiro[3][3], int jogador){
         printf("Deu empate!\n");
     }
 }
+    }
+    
 
 #endif
