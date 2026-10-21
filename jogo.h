@@ -83,8 +83,13 @@ void jogo(int tabuleiro[3][3], int jogador,int escolha){
     } else {
         printf("Deu empate!\n");
     }
-}
+    } else if (escolha == 2)
+    {
+        jogador_X_IA();
     }
+    
+    
+}
     
 
 #endif

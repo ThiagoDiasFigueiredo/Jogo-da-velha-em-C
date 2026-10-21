@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "tabuleiro.h"
 #include <time.h>
-
+#include <string.h>
 void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     int ameaca;
 
@@ -237,13 +237,13 @@ int jogador_X_IA(){
     imprimirTabuleiro(tabuleiro);
 
     if (sorteio == 0){
-        puts("\nO jogador vai começar\n");
+        puts("O jogador vai comecar\n");
         while(1){
-            printf("\nDigite a posição que deseja jogar: ");
+            printf("Digite a posicao que deseja jogar: ");
             scanf("%d", &jogada_usuario);
             if ((jogada_usuario<1)||
                 (jogada_usuario>9)){
-                    puts("\nEssa jogada foi invalida\n");
+                    puts("Essa jogada foi invalida\n");
                     continue;
                 }
             else{
@@ -256,23 +256,23 @@ int jogador_X_IA(){
         imprimirTabuleiro(tabuleiro);
     }
     else{
-        puts("\nA IA vai começar\n");
+        puts("A IA vai comecar\n");
         tabuleiro[1][1] = 1;
         imprimirTabuleiro(tabuleiro);
     }
     while (cont > 0){
-            printf("\nDigite a posição que deseja jogar: ");
+            printf("Digite a posicao que deseja jogar: ");
             scanf("%d", &jogada_usuario);
             if((jogada_usuario<1)||
                 (jogada_usuario>9)){
-                    puts("\nEssa jogada não foi valida\n");
+                    puts("\nEssa jogada nao foi valida\n");
                     continue;
                 }
             else if (tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] == 0){
                 tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = 4;
             }
             else{
-                puts("\nEssa jogada não foi valida\n");
+                puts("\nEssa jogada nao foi valida\n");
                 continue;
             }
 
@@ -288,7 +288,7 @@ int jogador_X_IA(){
             (tabuleiro[0][2] ==4 && tabuleiro[1][2] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][0] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][2] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][0] == 4)){
-                puts("\nVocê ganhou!");
+                puts("\nVoce ganhou!");
                 break;
             }
 
