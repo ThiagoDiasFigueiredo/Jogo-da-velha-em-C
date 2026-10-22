@@ -49,7 +49,7 @@ void jogo(int tabuleiro[3][3], int jogador){
             printf("Posicao invalida! Escolha de 1 a 9.\n");
             continue;
         }
-
+        //Verificação da posição digitada
         int contador = 1;                  
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){    

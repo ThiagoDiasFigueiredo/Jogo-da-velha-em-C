@@ -299,7 +299,7 @@ int jogador_X_IA(){
             (tabuleiro[0][0] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][2] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][0] == 4)){
                 imprimirTabuleiro(tabuleiro);   // mostra a sua jogada vencedora
-                puts("Voce ganhou!\n");
+                puts(" " VERMELHO "VOCEVENCEU!\n" RESET " ");
                 break;
             }
 
@@ -315,7 +315,7 @@ int jogador_X_IA(){
             (tabuleiro[0][2] ==1 &&  tabuleiro[1][2] ==1 &&  tabuleiro[2][2] == 1)||
             (tabuleiro[0][0] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][2] == 1)||
             (tabuleiro[0][2] ==1 &&  tabuleiro[1][1] ==1 &&  tabuleiro[2][0] == 1)){
-                puts("A IA ganhou!\n");
+                puts(" " VERDE "A IA GANHOU!\n" RESET " ");
                 break;
             }        
 
@@ -328,7 +328,7 @@ int jogador_X_IA(){
             }  
         }
         if (cont == 0){
-            puts("O jogo foi empatado\n");
+            puts(" " AMARELO "EMPATE!\n" RESET " ");
             break;
         }  
     } 
