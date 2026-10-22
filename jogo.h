@@ -28,14 +28,14 @@ int verificarVencedor(int tabuleiro[3][3]){
 }
  
 
-void jogo(int tabuleiro[3][3], int jogador,int escolha){
+void jogo(int tabuleiro[3][3], int jogador){
     int rodada = 0;
     int vencedor = -1; // -1 = ninguém ganhou ainda, 1 = X, 2 = O
     int posicao;
     int linha = 0, coluna = 0;
     
     imprimirTabuleiro(tabuleiro);
-    if(escolha == 1){
+
         while(rodada != 9 && vencedor == -1){
         printf("Rodada %d, vez de %c\n", rodada + 1, simbolo(jogador));
         printf("Digite a posicao de 1 a 9: ");
@@ -79,17 +79,13 @@ void jogo(int tabuleiro[3][3], int jogador,int escolha){
     }
 
     if(vencedor == 1){
-        printf("Jogador X venceu!\n");
+        printf(" " VERMELHO "JOGADOR X VENCEU!\n" RESET " ");
     } else if(vencedor == 2){
-        printf("Jogador O venceu!\n");
+        printf(" " VERDE "JOGADOR O VENCEU!\n" RESET " ");
     } else {
-        printf("Deu empate!\n");
+        printf(" " AMARELO "EMPATE!\n" RESET " ");
     }
-    } else if (escolha == 2)
-    {
-        jogador_X_IA();
-    }
-    
+
 }
     
 #endif

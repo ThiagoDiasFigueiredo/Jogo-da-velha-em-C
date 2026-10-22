@@ -232,12 +232,13 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario){
     }
     
 }
+
 int jogador_X_IA(){
     srand(time(NULL));
     int sorteio = rand() % 2, tabuleiro[3][3],jogada_usuario, cont = 9;
     Criartabuleiro(tabuleiro);
     imprimirTabuleiro(tabuleiro);
-
+    
     if (sorteio == 0){
         puts("O jogador vai comecar\n");
         while(1){
@@ -288,10 +289,7 @@ int jogador_X_IA(){
                 continue;
             }
 
-        jogabilidade_IA(tabuleiro, jogada_usuario);
-        
-        imprimirTabuleiro(tabuleiro);
-
+        //verifica se o usuario venceu  de a ia jogar
         if ((tabuleiro[0][0] == 4 && tabuleiro[0][1] == 4 && tabuleiro[0][2] == 4)||
             (tabuleiro[1][0] == 4 && tabuleiro[1][1] ==4 && tabuleiro[1][2] == 4)||
             (tabuleiro[2][0] ==4 && tabuleiro[2][1] ==4 && tabuleiro[2][2] == 4)||
@@ -300,9 +298,14 @@ int jogador_X_IA(){
             (tabuleiro[0][2] ==4 && tabuleiro[1][2] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][0] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][2] == 4)||
             (tabuleiro[0][2] ==4 && tabuleiro[1][1] ==4 && tabuleiro[2][0] == 4)){
+                imprimirTabuleiro(tabuleiro);   // mostra a sua jogada vencedora
                 puts("Voce ganhou!\n");
                 break;
             }
+
+        jogabilidade_IA(tabuleiro, jogada_usuario);
+        
+        imprimirTabuleiro(tabuleiro);
 
         if ((tabuleiro[0][0] ==1 && tabuleiro[0][1] ==1 && tabuleiro[0][2] == 1)||
             (tabuleiro[1][0] ==1 && tabuleiro[1][1] ==1 && tabuleiro[1][2] == 1)||

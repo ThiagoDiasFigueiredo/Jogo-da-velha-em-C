@@ -5,9 +5,17 @@
 #include "menu.h"
 
 int main(){
-    int tabuleiro[3][3];
-    Criartabuleiro(tabuleiro);
     int escolha = menu();
-    int primeiro = configuraJogadores();
-    jogo(tabuleiro,primeiro,escolha);
+    if(escolha == 1){
+        int tabuleiro[3][3];
+        Criartabuleiro(tabuleiro);
+    
+        int primeiro = configuraJogadores();
+        jogo(tabuleiro,primeiro);
+    } else if (escolha == 2)
+    {
+        
+        jogador_X_IA();
+    }
+    
 }
