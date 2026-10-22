@@ -3,8 +3,10 @@
 #include <stdio.h>
 #define VALOR_X 4
 #define VALOR_O 1
-
-void limparTela(){
+#define RESET    "\033[0m"
+#define VERMELHO "\033[31m"
+#define VERDE    "\033[32m"
+void buffer(){
     while(getchar() != '\n') { 
         NULL;
     }
@@ -17,7 +19,11 @@ void Criartabuleiro(int tabuleiro[3][3]){
         }
     }
 }
-
+int limparTela() {
+ printf("\033[2J\033[H");
+ return 0;
+ 
+}
 char simbolo(int valor){
     if(valor == VALOR_O){
         return 'O';
@@ -36,8 +42,10 @@ void imprimirTabuleiro(int tabuleiro[3][3]){
         for(int j = 0; j < 3; j++){
             if(tabuleiro[i][j] == 0){
                 printf(" %d ", contador);
+            } else if(tabuleiro[i][j] == VALOR_X){
+            printf(" " VERMELHO "X" RESET " ");
             } else {
-                printf(" %c ", simbolo(tabuleiro[i][j]));
+            printf(" " VERDE "O" RESET " ");
             }
             if(j < 2){
                 printf("|");

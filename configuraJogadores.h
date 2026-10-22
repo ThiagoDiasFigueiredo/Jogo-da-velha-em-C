@@ -13,8 +13,8 @@ int configuraJogadores(){
         int lido = scanf("%d", &escolha);
         
         if(lido != 1){ //1 é True e 0 é false (binário)
-            limparTela();
-            printf("Escolha inválida!\n"); //isso significa que o usuário não digitou um número
+            buffer();
+            printf("Escolha invalida!\n"); //isso significa que o usuário não digitou um número
             continue;
         }
         if(escolha == 1){

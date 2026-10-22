@@ -42,7 +42,7 @@ void jogo(int tabuleiro[3][3], int jogador,int escolha){
 
         if(scanf("%d", &posicao) != 1){
             printf("Entrada invalida! Digite um numero de 1 a 9.\n");
-            limparTela();
+            buffer();
             continue;
         }
         if(posicao < 1 || posicao > 9){
@@ -67,6 +67,7 @@ void jogo(int tabuleiro[3][3], int jogador,int escolha){
         }
         tabuleiro[linha][coluna] = jogador;
         rodada++;
+        limparTela();
         imprimirTabuleiro(tabuleiro);
         vencedor = verificarVencedor(tabuleiro);
 
@@ -89,8 +90,6 @@ void jogo(int tabuleiro[3][3], int jogador,int escolha){
         jogador_X_IA();
     }
     
-    
 }
     
-
 #endif
