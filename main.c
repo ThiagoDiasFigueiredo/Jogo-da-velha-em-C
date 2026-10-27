@@ -14,10 +14,11 @@ int main(){
         int primeiro = configuraJogadores();
         jogo(tabuleiro,primeiro);
 
-    } else if (escolha == 2)
+    } 
+    else if (escolha == 2){
 
-    {
-        jogador_X_IA();
+        int jogador =configuraJogadores();
+        jogador_X_IA(jogador);
     }
     
 }
