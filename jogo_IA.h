@@ -306,8 +306,14 @@ int jogador_X_IA(int jogador){
             (tabuleiro[0][0] ==jogador && tabuleiro[1][1] ==jogador && tabuleiro[2][2] == jogador)||
             (tabuleiro[0][2] ==jogador && tabuleiro[1][1] ==jogador && tabuleiro[2][0] == jogador)){
                 imprimirTabuleiro(tabuleiro);   // mostra a sua jogada vencedora
-                puts(" " VERMELHO "VOCEVENCEU!\n" RESET " ");
+                if(jogador == VALOR_O){
+                    puts(" " VERDE "VOCE VENCEU!\n" RESET " ");
                 break;
+                } else {
+                    puts(" " VERMELHO "VOCE VENCEU!\n" RESET " ");
+                break;
+                }
+                
             }
 
         jogabilidade_IA(tabuleiro, jogada_usuario, jogador,ia);
@@ -322,8 +328,14 @@ int jogador_X_IA(int jogador){
             (tabuleiro[0][2] ==ia &&  tabuleiro[1][2] ==ia &&  tabuleiro[2][2] == ia)||
             (tabuleiro[0][0] ==ia &&  tabuleiro[1][1] ==ia &&  tabuleiro[2][2] == ia)||
             (tabuleiro[0][2] ==ia &&  tabuleiro[1][1] ==ia &&  tabuleiro[2][0] == ia)){
-                puts(" " VERDE "A IA GANHOU!\n" RESET " ");
-                break;
+                if(ia == VALOR_O){
+                    puts(" " VERDE "A IA GANHOU!\n" RESET " ");
+                    break;
+                } else {
+                    puts(" " VERMELHO "A IA GANHOU!\n" RESET " ");
+                    break;
+                }
+                
             }        
 
         cont = 0;
