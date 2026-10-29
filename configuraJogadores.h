@@ -23,7 +23,7 @@ int configuraJogadores(){
         if(escolha == 2){
             return VALOR_O;
         }
-        printf("Escolha inválida!\n");
+        printf("Escolha invalida!\n");
     }
 }
 

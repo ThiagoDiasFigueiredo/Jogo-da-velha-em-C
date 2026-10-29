@@ -252,8 +252,7 @@ int jogador_X_IA(int jogador){
             printf("Digite a posicao que deseja jogar: ");
             if (scanf("%d", &jogada_usuario)!=1){
                 puts("\nEssa jogada foi invalida\n");
-                int c;
-                while((c = getchar()) != '\n' && c!= EOF);
+                buffer();
                 continue;
             }
             if ((jogada_usuario<1)||
@@ -279,8 +278,7 @@ int jogador_X_IA(int jogador){
             printf("Digite a posicao que deseja jogar: ");
             if (scanf("%d", &jogada_usuario)!=1){
                 puts("\nEssa jogada foi invalida\n");
-                int c;
-                while((c = getchar()) != '\n' && c!= EOF);
+                buffer();
                 continue;
             }
             if((jogada_usuario<1)||

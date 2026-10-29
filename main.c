@@ -3,6 +3,7 @@
 #include "configurajogadores.h"
 #include "jogo.h"
 #include "menu.h"
+#include "jogo_IA.h"
 
 int main(){
     int escolha = menu();

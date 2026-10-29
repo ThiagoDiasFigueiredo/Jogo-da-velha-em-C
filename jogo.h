@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "tabuleiro.h"
 #include "menu.h"
-#include "jogo_IA.h"
+
 int verificarVencedor(int tabuleiro[3][3]){
     int combinacoes[8][3] = {
         {1, 2, 3}, {4, 5, 6}, {7, 8, 9},   // linhas 
