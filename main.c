@@ -7,9 +7,9 @@
 
 int main(){
     int escolha = menu();
-    
+     int tabuleiro[3][3];
     if(escolha == 1){
-        int tabuleiro[3][3];
+        
         Criartabuleiro(tabuleiro);
     
         int primeiro = configuraJogadores();

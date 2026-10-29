@@ -348,6 +348,6 @@ int jogador_X_IA(int jogador){
             puts(" " AMARELO "EMPATE!\n" RESET " ");
             break;
         }  
-    } 
+    }
     return 0;
 }

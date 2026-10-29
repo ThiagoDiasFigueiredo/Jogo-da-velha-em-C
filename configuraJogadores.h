@@ -9,7 +9,7 @@ int configuraJogadores(){
     int escolha;
     
     while(1){
-        printf("Digite 1 para X e 2 para O: ");
+        printf("Digite 1 para" " "VERMELHO "X" RESET " " "e 2 para" " " VERDE "O" RESET":"" ");
         int lido = scanf("%d", &escolha);
         
         if(lido != 1){ //1 é True e 0 é false (binário)
