@@ -234,8 +234,7 @@ void jogabilidade_IA(int tabuleiro[3][3],int jogada_usuario, int jogador, int ia
 }
 
 int jogador_X_IA(int jogador){
-    srand(time(NULL));
-    int sorteio = rand() % 2, tabuleiro[3][3],jogada_usuario, cont = 9,ia;
+    int tabuleiro[3][3],jogada_usuario, cont = 9,ia;
     if (jogador ==4){
         ia = 1;
     }
@@ -245,35 +244,7 @@ int jogador_X_IA(int jogador){
 
     Criartabuleiro(tabuleiro);
     imprimirTabuleiro(tabuleiro);
-    
-    if (sorteio == 0){
-        puts("O jogador vai comecar\n");
-        while(1){
-            printf("Digite a posicao que deseja jogar: ");
-            if (scanf("%d", &jogada_usuario)!=1){
-                puts("\nEssa jogada foi invalida\n");
-                buffer();
-                continue;
-            }
-            if ((jogada_usuario<1)||
-                (jogada_usuario>9)){
-                    puts("Essa jogada foi invalida\n");
-                    continue;
-                }
-            else{
-                tabuleiro[(jogada_usuario-1)/3][(jogada_usuario-1)%3] = jogador;
-                break;
-            }
-        }
-        jogabilidade_IA(tabuleiro, jogada_usuario, jogador, ia);
 
-        imprimirTabuleiro(tabuleiro);
-    }
-    else{
-        puts("A IA vai comecar\n");
-        tabuleiro[1][1] = ia;
-        imprimirTabuleiro(tabuleiro);
-    }
     while (cont > 0){
             printf("Digite a posicao que deseja jogar: ");
             if (scanf("%d", &jogada_usuario)!=1){
