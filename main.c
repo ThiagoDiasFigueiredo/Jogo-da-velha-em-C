@@ -3,8 +3,9 @@
 #include "partida.h"
 
 int main() {
-    Partida partida;
 
+    Partida partida;
+      
     configuraJogadores(&partida);
     inicia(&partida);
 

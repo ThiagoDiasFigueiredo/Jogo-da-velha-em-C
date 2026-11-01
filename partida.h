@@ -18,6 +18,10 @@ typedef struct {
 
 void configuraJogadores(Partida *p) {
     p->modo = menu();
+
+    if(p->modo == 3){
+        return; //serve para não passar pela escolha do X ou O
+    }
     int escolha;
 
     while (1) {
@@ -46,6 +50,23 @@ void configuraJogadores(Partida *p) {
 }
 
 void inicia(Partida *p) {
+
+    // Se o modo for Online (3)
+    if (p->modo == 3) {
+        int opcao_rede;
+        printf("\n[1] Criar Servidor (Voce e o X)\n");
+        printf("[2] Conectar a um Servidor (Voce e o O)\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao_rede);
+
+        if (opcao_rede == 1) {
+            iniciarServidor(&p->tab);
+        } else {
+            iniciarCliente(&p->tab);
+        }
+        return; // Encerra a função pois o fluxo online cuida do loop do jogo
+    }
+
     int rodada = 0;
     int vencedor = -1;
 
