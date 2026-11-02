@@ -4,10 +4,9 @@
 #include <winsock2.h>
 #include "tabuleiro.h"
 
-#pragma comment(lib, "ws2_32.lib")
 
 int main() {
-    WSADATA wsa;
+    WSADATA versao;
     SOCKET s;
     struct sockaddr_in servidor;
     char buffer[100];
@@ -17,7 +16,7 @@ int main() {
 
     // 1. Inicializa o Winsock
     printf("Inicializando Winsock...\n");
-    if (WSAStartup(MAKEWORD(2,2), &wsa) != 0) {
+    if (WSAStartup(MAKEWORD(2,2), &versao) != 0) {
         printf("Falha. Erro: %d\n", WSAGetLastError());
         return 1;
     }
